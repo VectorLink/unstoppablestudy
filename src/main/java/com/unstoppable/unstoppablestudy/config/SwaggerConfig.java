@@ -27,7 +27,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("unstoppable-study")
+                .title("好好学习，天天向上")
                 .description("springboot | swagger")
                 // 作者信息
                 .contact(new Contact("unstoppable-study", "www.baidu.com", "1107746668@qq.com"))
