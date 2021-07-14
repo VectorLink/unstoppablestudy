@@ -57,7 +57,7 @@
 			<artifactId>druid-spring-boot-starter</artifactId>
 			<version>1.2.1</version>
 		</dependency>
-
+<!--工具包-->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -83,7 +83,18 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
-
+<!--swagger-->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<!-- 美化swagger 页面-->
+		<dependency>
+			<groupId>com.github.xiaoymin</groupId>
+			<artifactId>swagger-bootstrap-ui</artifactId>
+			<version>1.9.6</version>
+		</dependency>
 <!--		rabbit.mq-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
