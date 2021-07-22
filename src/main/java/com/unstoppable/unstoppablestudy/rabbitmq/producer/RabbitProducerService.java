@@ -38,9 +38,9 @@ public class RabbitProducerService implements InitializingBean {
 
     public void send(Object object) {
         if (object instanceof String || object instanceof JSONObject) {
-            rabbitTemplate.convertAndSend(RabbitConfig.COM_UNSTOPPABLE_STUDY_TOPIC,RabbitConfig.COM_UNSTOPPABLE_STUDY_ROUTE_KEY,object);
+            rabbitTemplate.convertAndSend(RabbitConfig.COM_UNSTOPPABLE_STUDY_TOPIC,RabbitConfig.COM_UNSTOPPABLE_FIRST_STUDY_ROUTE_KEY,object);
         } else {
-            rabbitTemplate.convertAndSend(RabbitConfig.COM_UNSTOPPABLE_STUDY_TOPIC,RabbitConfig.COM_UNSTOPPABLE_STUDY_ROUTE_KEY, JSON.toJSONString(object));
+            rabbitTemplate.convertAndSend(RabbitConfig.COM_UNSTOPPABLE_STUDY_TOPIC,RabbitConfig.COM_UNSTOPPABLE_FIRST_STUDY_ROUTE_KEY, JSON.toJSONString(object));
         }
     }
     //可靠性投递
