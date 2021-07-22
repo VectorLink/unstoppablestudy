@@ -21,6 +21,13 @@ spring:
     password: guest
     virtual-host: /
     port: 5672
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    template:
+      mandatory: true
+    listener:
+      simple:
+        acknowledge-mode: manual
   main:
     allow-bean-definition-overriding: true
 
