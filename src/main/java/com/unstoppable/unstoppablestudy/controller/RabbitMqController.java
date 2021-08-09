@@ -3,6 +3,7 @@ package com.unstoppable.unstoppablestudy.controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.unstoppable.unstoppablestudy.constants.RabbitConstants;
+import com.unstoppable.unstoppablestudy.dao.entity.UserInfo;
 import com.unstoppable.unstoppablestudy.rabbitmq.producer.RabbitProducerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -56,5 +57,12 @@ public class RabbitMqController {
                     });
         }
         log.info("完成消息发送：{}",msg);
+    }
+    @ApiOperation("消息队列-发送对象JSON")
+    @RequestMapping(value = "sendUserJson",method = RequestMethod.POST)
+    public void sendUserInfoJson(@RequestBody UserInfo userInfo){
+        rabbitProducerService.sendMsg(RabbitConstants.COM_UNSTOPPABLE_STUDY_TOPIC,
+                RabbitConstants.COM_UNSTOPPABLE_SECOND_STUDY_ROUTE_KEY,userInfo,null);
+
     }
 }
