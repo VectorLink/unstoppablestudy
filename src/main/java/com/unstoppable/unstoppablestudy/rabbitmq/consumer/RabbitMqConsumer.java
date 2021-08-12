@@ -74,6 +74,12 @@ public class RabbitMqConsumer {
             log.info("开始执行自定义函数");
            BigDecimal result= myFunctionInterface.apply(u.getSalary(),u.getAge(),u.getId().doubleValue(),u.getAge().longValue());
            log.info("自定义函数执行结果：{}",result);
+
+           log.info("用户是否大于30？，{}",predicate.test(u));
+           //大于30岁并且小于40岁
+           predicate.and(predicate2).test(u);
+
+
         }
         channel.basicAck(deliveryTag, true);
     }
@@ -103,6 +109,7 @@ public class RabbitMqConsumer {
     Consumer<UserInfo> consumer = (t) -> log.info("收到了学生的信息", t.getAge());
 
     Predicate<UserInfo> predicate=(t)-> t.getAge()>30;
+    Predicate<UserInfo> predicate2=t->t.getAge()<40;
 
     Function<UserInfo,Boolean> function=(t)->{
       if (t.getAge()>30){

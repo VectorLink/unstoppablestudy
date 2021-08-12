@@ -19,7 +19,14 @@ public class MessageInfoController {
     private PopulateSiteService populateSiteService;
     @ApiOperation(value = "测试方法")
     @RequestMapping(value = "testMethod",method = RequestMethod.POST)
-    public void sendRabbitMsg(@RequestBody String msg){
-        populateSiteService.TestTransaction();
+    public void testPopulateSiteTransaction(@RequestBody String msg){
+        populateSiteService.testPopulateSiteSaveTransaction();
     }
+
+    @ApiOperation(value = "测试方法")
+    @RequestMapping(value = "testTransaction",method = RequestMethod.POST)
+    public void testTransaction(@RequestBody String msg){
+        populateSiteService.testTransaction();
+    }
+
 }

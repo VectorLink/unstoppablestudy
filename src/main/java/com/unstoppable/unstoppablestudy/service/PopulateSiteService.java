@@ -15,5 +15,10 @@ public interface PopulateSiteService extends IService<PopulateSite> {
     /**
      * 测试一下
      */
-    public void TestTransaction();
+    public void testPopulateSiteSaveTransaction();
+
+    /**
+     * 测试调用事务
+     */
+    public void testTransaction();
 }

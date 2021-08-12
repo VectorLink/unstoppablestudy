@@ -5,6 +5,7 @@ import com.unstoppable.unstoppablestudy.dao.one.PopulateSiteMapper;
 import com.unstoppable.unstoppablestudy.service.PopulateSiteService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.aop.framework.AopContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionSynchronization;
@@ -27,7 +28,7 @@ import java.time.LocalDateTime;
 public class PopulateSiteServiceImpl extends ServiceImpl<PopulateSiteMapper, PopulateSite> implements PopulateSiteService {
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void TestTransaction() {
+    public void testPopulateSiteSaveTransaction() {
         PopulateSite populateSite= PopulateSite.builder().populateSiteCatId(1).cataLogCode("momo")
                 .domain("ceshi").siteName("hah").altSiteName("hahha6").status(1).isMarkup(1).handlingFee(BigDecimal.valueOf(0.04)).createBy("lijun")
                 .updateBy("lijun").createDate(LocalDateTime.now()).updateDate(LocalDateTime.now()).build();
@@ -37,8 +38,18 @@ public class PopulateSiteServiceImpl extends ServiceImpl<PopulateSiteMapper, Pop
      throw new RuntimeException("测试回归");
     }
 
-
-
+    @Override
+    public void testTransaction() {
+        ((PopulateSiteServiceImpl)  AopContext.currentProxy()). testMethod();
+    }
+    @Transactional(rollbackFor = Exception.class)
+    public void testMethod(){
+        PopulateSite populateSite= PopulateSite.builder().populateSiteCatId(1).cataLogCode("momo")
+                .domain("ceshi").siteName("hah").altSiteName("hahha6").status(1).isMarkup(1).handlingFee(BigDecimal.valueOf(0.04)).createBy("lijun")
+                .updateBy("lijun").createDate(LocalDateTime.now()).updateDate(LocalDateTime.now()).build();
+        this.saveOrUpdate(populateSite);
+        throw new RuntimeException("测试回归");
+    }
 
     public void firstAfterCommit(){
         if (TransactionSynchronizationManager.isSynchronizationActive()) {
