@@ -17,8 +17,8 @@ spring:
     port: 6379
   rabbitmq:
     addresses: localhost
-    username: guest
-    password: guest
+    username: admin
+    password: admin
     virtual-host: /
     port: 5672
     publisher-confirm-type: correlated
@@ -31,4 +31,17 @@ spring:
         prefetch: 10
   main:
     allow-bean-definition-overriding: true
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        enabled: true
+        register: true
+        prefer-ip-address: true
+        instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+        health-check-path: /actuator/health
+        health-check-critical-timeout: 30s
+  application:
+    name: unstoppable
 
