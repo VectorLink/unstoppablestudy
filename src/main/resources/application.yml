@@ -43,4 +43,21 @@ spring:
         health-check-critical-timeout: 30s
   application:
     name: unstoppable
-
+#management:  #actuator
+#  endpoints:
+#    web:
+#      #      base-path: / #默认是/actuator 前缀，可以在这里修改
+#      exposure:
+##        include: "*"  #打开全部请求端点
+#        include: refresh,health,info #打开部分
+test2:
+  name: stest123
+#xc:
+#  config:
+#    remote:
+#      - 'file:D://test.properties' # 本地文件测试
+#logging:
+#  level:
+#    root: debug
+#
+#debug: true

@@ -1,0 +1,3 @@
+#org.springframework.boot.env.EnvironmentPostProcessor=com.unstoppable.unstoppablestudy.config.RemoteConfigLoadPostProcessor
+## 注册用于打印日志
+#org.springframework.context.ApplicationListener=com.unstoppable.unstoppablestudy.config.RemoteConfigLoadPostProcessor

@@ -6,6 +6,7 @@ import com.unstoppable.unstoppablestudy.service.PopulateSiteService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.aop.framework.AopContext;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionSynchronization;
@@ -26,6 +27,7 @@ import java.time.LocalDateTime;
 @Service
 @Slf4j
 public class PopulateSiteServiceImpl extends ServiceImpl<PopulateSiteMapper, PopulateSite> implements PopulateSiteService {
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void testPopulateSiteSaveTransaction() {
