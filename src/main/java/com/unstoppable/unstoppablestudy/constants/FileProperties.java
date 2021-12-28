@@ -6,8 +6,10 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @Data
-public class FileProperties {
+public  class  FileProperties {
 
     @Value("${test.name}")
-    String name;
+   public  String name;
+    @Value("${mq.disable}")
+   public static boolean rabbitMqFile;
 }

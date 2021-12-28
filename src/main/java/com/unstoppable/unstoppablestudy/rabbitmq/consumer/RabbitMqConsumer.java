@@ -1,12 +1,9 @@
 package com.unstoppable.unstoppablestudy.rabbitmq.consumer;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rabbitmq.client.Channel;
 import com.unstoppable.unstoppablestudy.cache.StudyLocalCache;
-import com.unstoppable.unstoppablestudy.config.RabbitConfig;
 import com.unstoppable.unstoppablestudy.constants.RabbitConstants;
 import com.unstoppable.unstoppablestudy.dao.entity.UserInfo;
 import com.unstoppable.unstoppablestudy.service.MyFunctionInterface;
@@ -20,7 +17,6 @@ import javax.annotation.Resource;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
-import java.util.Comparator;
 import java.util.Objects;
 import java.util.function.BinaryOperator;
 import java.util.function.Consumer;

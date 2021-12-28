@@ -61,3 +61,5 @@ test2:
 #    root: debug
 #
 #debug: true
+mq:
+  disable: true
