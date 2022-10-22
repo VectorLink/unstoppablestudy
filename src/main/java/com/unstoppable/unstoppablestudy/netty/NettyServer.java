@@ -6,10 +6,6 @@
 //import io.netty.channel.socket.SocketChannel;
 //import io.netty.channel.socket.nio.NioServerSocketChannel;
 //import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
-//import io.netty.handler.codec.http.DefaultFullHttpResponse;
-//import io.netty.handler.codec.http.HttpRequest;
-//import io.netty.handler.codec.http.HttpResponseStatus;
-//import io.netty.handler.codec.http.HttpServerCodec;
 //import io.netty.handler.logging.LogLevel;
 //import io.netty.handler.logging.LoggingHandler;
 //import lombok.extern.slf4j.Slf4j;
@@ -32,12 +28,12 @@
 //                                .addLast(new LoggingHandler(LogLevel.DEBUG))
 //                                .addLast(new LengthFieldBasedFrameDecoder(1024,12,4,0,0))
 //                                .addLast(new HttpServerCodec())
-////                                .addLast(new ChannelInboundHandlerAdapter(){
-//                                    //                                    @Override
-//                                    //                                    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-//                                    //                                        log.debug("{}",msg.getClass());
-//                                    //                                    }
-//                                    //                                });
+//                                .addLast(new ChannelInboundHandlerAdapter(){
+//                                                                        @Override
+//                                                                        public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+//                                                                            log.debug("{}",msg.getClass());
+//                                                                        }
+//                                                                    })
 //                                .addLast(new SimpleChannelInboundHandler<HttpRequest>() {
 //                                    @Override
 //                                        protected void channelRead0(ChannelHandlerContext channelHandlerContext, HttpRequest httpRequest) throws Exception {
