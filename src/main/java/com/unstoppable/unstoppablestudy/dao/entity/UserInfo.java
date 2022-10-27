@@ -6,21 +6,23 @@ import java.io.Serializable;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author ${author}
  * @since 2021-07-13
  */
-@Data
-@EqualsAndHashCode(callSuper = false)
+
+
 @TableName("user_info")
 @ApiModel( description = "人员信息")
+@Builder
+@Getter
+@Setter
 public class UserInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
